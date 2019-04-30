@@ -1,6 +1,87 @@
+<?xml version="1.0"?>
 <robot name="jakebot">
-  <link
-    name="base_laser">
+  <link name="base_link">
+    <inertial>
+      <mass value="2.637" />
+        <origin xyz="0 0 0" />
+        <inertia  ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="<TODO>"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0">
+      <geometry>
+        <mesh filename="<TODO/>">
+      </geometry>
+    </collision>
+  </link> 
+
+  <link name="left_wheel_link">  
+    <inertial>
+      <mass value="2.637" />
+        <origin xyz="0 0 0" />
+        <inertia  ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="<TODO>"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0">
+      <geometry>
+        <mesh filename="<TODO/>">
+      </geometry>
+    </collision>
+  </link>
+
+  <link name= "right_wheel_link">  
+    <inertial>
+      <mass value="2.637" />
+        <origin xyz="0 0 0" />
+        <inertia  ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="<TODO>"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0">
+      <geometry>
+        <mesh filename="<TODO/>">
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_left_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="wheel_right_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 1" rpy="0 0 0" />
+      <parent link="base_link" />
+      <child link="base_laser" />
+  </joint>
+
+
+  <link name="base_laser">
     <inertial>
       <origin
         xyz="-0.00029774 0.0066667 0.00013047"
