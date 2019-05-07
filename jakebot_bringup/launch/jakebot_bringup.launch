@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <launch>
-<!--
+
   <node name="serial_node" pkg="rosserial_python" type="serial_node.py">
     <param name="_port" type="string" value="/dev/ttyUSB0"/>   
     <param name="_baud" type="int" value="57600"/>
   </node>
 
+<!--
   <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
     <param name="port"         type="string" value="/dev/ttyTHS2"/>
     <param name="baudrate"     type="int"    value="115200"/>
@@ -23,12 +24,13 @@
     <param name="frequency"    type="double" value="7"/>
   </node>
 -->
+
   <param name="robot_description" command="cat '$(find jakebot_description)/urdf/jakebot.urdf'"/>
-  <arg name="multi_robot_name" value="jakebot"/>
   <rosparam file="$(find jakebot_bringup)/config/jakebot_diff_driver.yaml" command="load"/>
+  <arg name="multi_robot_name" value="jakebot"/>
 
   <node name="controller" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="mobile_base_controller"/>
-
+  <node name="base_node" pkg="jakebot_bringup" type="jakebot_bringup_node"/>
 
 <!--
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">

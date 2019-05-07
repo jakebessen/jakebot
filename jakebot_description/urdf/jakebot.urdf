@@ -1,100 +1,21 @@
 <?xml version="1.0"?>
 <robot name="jakebot">
+
+  <!-- Link definitions -->
   <link name="base_link">
     <inertial>
-      <mass value="2.637" />
-        <origin xyz="0 0 0" />
-        <inertia  ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467" />
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="<TODO>"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0">
-      <geometry>
-        <mesh filename="<TODO/>">
-      </geometry>
-    </collision>
-  </link> 
-
-  <link name="left_wheel_link">  
-    <inertial>
-      <mass value="2.637" />
-        <origin xyz="0 0 0" />
-        <inertia  ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467" />
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="<TODO>"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0">
-      <geometry>
-        <mesh filename="<TODO/>">
-      </geometry>
-    </collision>
-  </link>
-
-  <link name= "right_wheel_link">  
-    <inertial>
-      <mass value="2.637" />
-        <origin xyz="0 0 0" />
-        <inertia  ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467" />
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="<TODO>"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0">
-      <geometry>
-        <mesh filename="<TODO/>">
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="wheel_left_joint" type="continuous">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="left_wheel_link"/>
-    <axis xyz="0 1 0" rpy="0 0 0"/>
-  </joint>
-
-  <joint name="wheel_right_joint" type="continuous">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="right_wheel_link"/>
-    <axis xyz="0 1 0" rpy="0 0 0"/>
-  </joint>
-
-  <joint name="base_footprint_joint" type="fixed">
-    <origin xyz="0 0 1" rpy="0 0 0" />
-      <parent link="base_link" />
-      <child link="base_laser" />
-  </joint>
-
-
-  <link name="base_laser">
-    <inertial>
       <origin
-        xyz="-0.00029774 0.0066667 0.00013047"
+        xyz="0.182775507908621 -0.0385561727484942 0.125779055260877"
         rpy="0 0 0" />
       <mass
-        value="0.15717" />
+        value="0.526604654238768" />
       <inertia
-        ixx="6.7885E-05"
-        ixy="-1.3987E-07"
-        ixz="-8.1554E-07"
-        iyy="0.00013173"
-        iyz="-9.0932E-08"
-        izz="7.1972E-05" />
+        ixx="0.000644002696341326"
+        ixy="-9.32337880366203E-05"
+        ixz="-3.48554604703729E-05"
+        iyy="0.000576239720814464"
+        iyz="1.3067104673483E-05"
+        izz="0.000803657783142822" />
     </inertial>
     <visual>
       <origin
@@ -102,12 +23,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ydlidar/meshes/ydlidar.dae" />
+          filename="package://jakebot_description/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.64706 0.61961 0.58824 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -116,62 +37,126 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ydlidar/meshes/ydlidar.dae" />
+          filename="package://jakebot_description/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
-  <link
-    name="laser_frame">
+
+
+  <link name="right_wheel_link">
     <inertial>
       <origin
-        xyz="-0.00036659 0.00064155 -0.00027052"
+        xyz="-0.0010621852414865 5.83194314923707E-07 0.00162251531961737"
         rpy="0 0 0" />
       <mass
-        value="0.25482" />
+        value="0.135676532662657" />
       <inertia
-        ixx="8.9194E-05"
-        ixy="1.8116E-07"
-        ixz="3.6435E-08"
-        iyy="0.00018279"
-        iyz="2.423E-07"
-        izz="0.00011103" />
+        ixx="1.34392292304675E-07"
+        ixy="5.53822833163994E-10"
+        ixz="8.07380795319577E-08"
+        iyy="1.89040223987669E-07"
+        iyz="-2.2055605257276E-11"
+        izz="6.57308290303042E-08" />
     </inertial>
-    <!--visual>
+    <visual>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ydlidar/meshes/ydlidar.dae" />
+          filename="package://jakebot_description/meshes/right_wheel_joint.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.64706 0.61961 0.58824 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
-    </visual-->
-    <!--collision>
+    </visual>
+    <collision>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ydlidar/meshes/ydlidar.dae" />
+          filename="package://jakebot_description/meshes/right_wheel_joint.STL" />
       </geometry>
-    </collision-->
+    </collision>
   </link>
-  <joint
-    name="laser_joint"
-    type="fixed">
+
+  <link name= "left_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.00553671946245582 5.83194360491424E-07 0.00847137161348571"
+        rpy="0 0 0" />
+      <mass
+        value="0.135676532662435" />
+      <inertia
+        ixx="1.34392292328961E-07"
+        ixy="5.53822857307792E-10"
+        ixz="8.07380795263485E-08"
+        iyy="1.89040223984973E-07"
+        iyz="-2.20556230014027E-11"
+        izz="6.57308290347727E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jakebot_description/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jakebot_description/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Joint definitions -->
+  <joint name="right_wheel_joint" type="continuous">
     <origin
-      xyz="0 0 0.03172"
-      rpy="0 0 0" />
+      xyz="0.100857110590724 -0.111711637463568 0.133047361647825"
+      rpy="1.5707963267949 0 0" />
     <parent
-      link="base_laser" />
+      link="base_link" />
     <child
-      link="laser_frame" />
+      link="right_wheel_link" />
     <axis
-      xyz="0 0 0" />
+      xyz="-0.546944138603989 0 0.837169104331222" />
   </joint>
+
+  <joint name="left_wheel_joint" type="continuous">
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.21310629195295 0.0601003264835743 0.133047361647828"
+      rpy="2.28055914801789 0.784117016610603 -2.83752295008773" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0.546944138603989 0 -0.837169104331222" />
+  </joint>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>jakebot</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+
 </robot>
 

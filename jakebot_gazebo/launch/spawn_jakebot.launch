@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+
+    <include file="$(find jakebot_control)/launch/control.launch"/>
+
+    <node name="spawn_jakebot_model" pkg="gazebo_ros" output="screen" type="spawn_model"
+        args="-x $(arg x)
+              -y $(arg y)
+              -z $(arg z)
+              -yaw $(arg yaw)
+              -unpause
+              -urdf
+              -param robot_description
+              -model jakebot" />
+
+</launch>

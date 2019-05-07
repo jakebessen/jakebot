@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find jakebot_description)/launch/description.launch"/>
+    <rosparam command="load" file="$(find jakebot_bringup)/config/jakebot_diff_driver.yaml"/>
+    <node name="controller" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller mobile_base_controller"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+</launch>
